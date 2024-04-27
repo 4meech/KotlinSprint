@@ -12,7 +12,7 @@ fun main() {
     """.trimIndent()
     )
 
-    val userInput = readLine()
+    val userInput = readln()
     if (userInput.equals(username)) {
         print(
             """
@@ -22,7 +22,7 @@ fun main() {
             Жду, вводите: 
         """.trimIndent()
         )
-        val passInput = readLine()
+        val passInput = readln()
         if (passInput.equals(password)) {
             println("Ура. Счастье. Знать бы ещё что это. Проходите.")
         } else {
