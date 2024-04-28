@@ -1,19 +1,20 @@
 package org.example.lesson_5
 
-const val CORRECT_ANSWER = 9
-
 fun main() {
+    val (firstNumber, secondNumber) = 2 to 7
+    val correctAnswer = firstNumber + secondNumber
+
     println(
         """
         Ваши запросы похожи на автоматические. Докажите, что вы не робот:
-        Сколько будет "2 + 7"? Введите ответ:
+        Сколько будет "$firstNumber + $secondNumber"? Введите ответ:
     """.trimIndent()
     )
 
     val answerInput = readln().toIntOrNull()
     if (answerInput != null)
         when (answerInput) {
-            CORRECT_ANSWER -> println("Добро пожаловать!")
+            correctAnswer -> println("Добро пожаловать!")
             else -> println("Доступ запрещён!")
         }
     else {
