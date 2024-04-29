@@ -2,7 +2,6 @@ package org.example.lesson_5
 
 fun main() {
     val winNumbers = generateWinNumbers()
-    println(winNumbers)
     val userNumbers = getUserNumbers()
 
     val matchCount = winNumbers.intersect(userNumbers).size
