@@ -4,7 +4,7 @@ fun main() {
     val winNumbers = generateWinNumbers()
     val userNumbers = getUserNumbers()
 
-    val matchCount = winNumbers.intersect(userNumbers).size
+    val matchCount = winNumbers.intersect(userNumbers.toSet()).size
 
     when (matchCount) {
         3 -> println("Вы угадали все числа и выиграли джекпот!")
@@ -21,11 +21,15 @@ fun generateWinNumbers(): List<Int> {
     return rawNumbers.subList(0, 3)
 }
 
-fun getUserNumbers(): List<Int>{
+fun getUserNumbers(): List<Int> {
     val userNumbers: MutableList<Int> = mutableListOf()
     println("Введите три числа от 0 до 42, после каждого числа нажмите Enter: ")
-    for (i in 0..2) {
-        val userInput = readln().toInt()
+    while (userNumbers.size < 3) {
+        val userInput = readln().toIntOrNull()
+        if (userInput == null || userInput !in 0..42 || userNumbers.contains(userInput)) {
+            println("Ошибка ввода: ожидается не повторяющееся число от 0 до 42")
+            continue
+        }
         userNumbers.add(userInput)
     }
     return userNumbers
