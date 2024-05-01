@@ -15,5 +15,6 @@ fun main() {
             && isAwningOpenNow == IS_AWNING_OPEN
             && humidityPercentNow == HUMIDITY_PERCENT_FAVORABLE
             && seasonFavorable.contains(seasonNow))
+
     println("Благоприятные ли условия сейчас для роста бобовых? $isFavorable")
 }
