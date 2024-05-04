@@ -1,7 +1,7 @@
 package org.example.lesson_7
 
 fun main() {
-    var password = ""
+    val password = mutableListOf<Char>()
     var userLenInput: Int
 
     do {
@@ -15,26 +15,16 @@ fun main() {
     val capitalCharRange = 'A'..'Z'
     val lowercaseCharRange = 'a'..'z'
     val intRange = '0'..'9'
-    val charRanges = listOf(capitalCharRange, lowercaseCharRange, intRange)
-    var hasCapital = false
-    var hasLower = false
-    var hasDigit = false
+    val allCharsRange: List<Char> = ('A'..'Z') + ('a'..'z') + ('0'..'9')
 
-    do {
-        for (i in 1..userLenInput) {
-            val randomRange = charRanges.random()
-            val randomChar = randomRange.random()
-            password += randomChar
+    password.add(capitalCharRange.random())
+    password.add(lowercaseCharRange.random())
+    password.add(intRange.random())
 
-            if (intRange.contains(randomChar)) {
-                hasDigit = true
-            } else if (capitalCharRange.contains(randomChar)) {
-                hasCapital = true
-            } else if (lowercaseCharRange.contains(randomChar)) {
-                hasLower = true
-            }
-        }
-    } while (!(hasDigit && hasCapital && hasLower))
+    for (i in 3 until userLenInput) {
+        password.add(allCharsRange.random())
+    }
 
-    println(password)
+    password.shuffle()
+    println(password.joinToString(""))
 }
