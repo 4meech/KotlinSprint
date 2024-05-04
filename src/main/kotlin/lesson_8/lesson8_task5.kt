@@ -1,13 +1,12 @@
 package org.example.lesson_8
 
 fun main() {
-   println("Введите количество ингредиентов: ")
-    val numOfIngredients = readln().toInt()
-    val arrayOfIngredients = Array(numOfIngredients) {""}
+    println("Введите количество ингредиентов: ")
 
-    for (i in arrayOfIngredients.indices) {
-        print("Введите ингредиент №${i + 1}: ")
-        arrayOfIngredients[i] = readln()
+    val arrayOfIngredients = Array(readln().toInt()) {
+        print("Введите ингредиент №${it + 1}: ")
+        readln()
     }
-    print(arrayOfIngredients.contentToString())
+
+    print(arrayOfIngredients.joinToString())
 }
