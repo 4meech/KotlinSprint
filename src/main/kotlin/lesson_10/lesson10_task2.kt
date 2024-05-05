@@ -6,12 +6,11 @@ fun main() {
     println("Введите пароль:")
     val userPass = readln()
 
-    println(validateLength(userLogin, userPass))
-}
-
-fun validateLength(userLogin: String, userPass: String): String {
-    return when {
-        (userLogin.length < 4 || userPass.length < 4) -> "Логин или пароль недостаточно длинные"
-        else -> "Добро пожаловать!"
+    if (validateLength(userLogin) && validateLength(userPass)) {
+        println("Добро пожаловать!")
+    } else {
+        println("Логин или пароль недостаточно длинные")
     }
 }
+
+fun validateLength(userInput: String): Boolean = userInput.length >= 4
