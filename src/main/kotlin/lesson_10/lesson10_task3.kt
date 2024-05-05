@@ -2,19 +2,21 @@ package org.example.lesson_10
 
 fun main() {
     println("Введите желаемую длину пароля:")
-    println(generatePassword())
+    val passLength = readln().toInt()
+
+    println(generatePassword(passLength))
 }
 
-fun generatePassword(passLength: Int = readln().toInt()): String {
-    val specialCharsList = listOf('!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ' ')
-    val digitsList = listOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
-    val password = mutableListOf<Char>()
+fun generatePassword(passLength: Int): String {
+    val specialCharsRange = ' '..'/'
+    val digitsRange = 0..9
+    var password = ""
 
     for (i in 1 .. passLength)
         if (i % 2 == 0) {
-            password.add(specialCharsList.random())
+            password += specialCharsRange.random()
         } else {
-            password.add(digitsList.random())
+            password += digitsRange.random()
         }
-    return password.joinToString("")
+    return password
 }
