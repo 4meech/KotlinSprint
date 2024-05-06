@@ -1,9 +1,9 @@
 package org.example.lesson_10
 
 fun main() {
-    val humanResult = throwDice()
+    val humanResult = throwDiceFirst()
     println("Кубик бросает человек... Выпало число $humanResult")
-    val computerResult = throwDice()
+    val computerResult = throwDiceFirst()
     println("Кубик бросает компьютер... Выпало число $computerResult")
 
     val result = when {
@@ -16,4 +16,4 @@ fun main() {
     println(result)
 }
 
-fun throwDice(): Int = (1..6).random()
+fun throwDiceFirst(): Int = (1..6).random()
