@@ -1,18 +1,18 @@
 package org.example.lesson_12
 
-const val DAY_TEMP_KELVIN = 308
-const val NIGHT_TEMP_KELVIN = 296
-const val CELSIUS_OFFSET = 273
+const val DAY_TEMP__KELVIN = 308
+const val NIGHT_TEMP__KELVIN = 296
+const val CELSIUS__OFFSET = 273
 
 fun main() {
-    val weatherCentigrade = WeatherKelvin(DAY_TEMP_KELVIN, NIGHT_TEMP_KELVIN, true)
+    val weatherCentigrade = WeatherKelvin(DAY_TEMP__KELVIN, NIGHT_TEMP__KELVIN, true)
     weatherCentigrade.printWeather()
 }
 
 class WeatherKelvin(_dayTemp: Int, _nightTemp: Int, _wasPrecipitation: Boolean) {
 
-    val dayTemp = _dayTemp - CELSIUS_OFFSET
-    val nightTemp = _nightTemp - CELSIUS_OFFSET
+    val dayTemp = _dayTemp - CELSIUS__OFFSET
+    val nightTemp = _nightTemp - CELSIUS__OFFSET
     var wasPrecipitation = _wasPrecipitation
 
     fun printWeather() {
