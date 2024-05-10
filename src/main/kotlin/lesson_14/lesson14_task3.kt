@@ -14,11 +14,10 @@ fun main() {
     var sumOfBlackPerimeters = 0.0
     var sumOfWhiteAreas = 0.0
 
-
-    listOfFigures.forEach {
-        when (it.color.lowercase()) {
-            "чёрный" -> sumOfBlackPerimeters += it.countPerimeter()
-            "белый" -> sumOfWhiteAreas += it.countArea()
+    listOfFigures.forEach { figure ->
+        when (figure.color.lowercase()) {
+            "чёрный" -> sumOfBlackPerimeters += figure.countPerimeter()
+            "белый" -> sumOfWhiteAreas += figure.countArea()
         }
     }
 
