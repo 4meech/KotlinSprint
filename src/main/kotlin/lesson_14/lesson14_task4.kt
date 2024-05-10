@@ -3,15 +3,15 @@ package org.example.lesson_14
 fun main() {
     val mars = Planet("Марс", hasAtmosphere = true, isPossibleToLand = true)
 
-    val phobos = Satellite("Фобос", hasAtmosphere = false, isPossibleToLand = true)
-    val deimos = Satellite("Деймос", hasAtmosphere = false, isPossibleToLand = false)
+    val phobos = Satellite("Фобос", false, true).apply { mars.satelliteSet.add(this) }
+    val deimos = Satellite("Деймос", false, false).apply { mars.satelliteSet.add(this) }
 
-    mars.satelliteSet.addAll(setOf(phobos, deimos))
-
-    println("Планета ${mars.name}")
-    println("Список спутников:")
-    mars.satelliteSet.forEach { satellite ->
-        println("— ${satellite.name}")
+    mars.run {
+        println("Планета $name")
+        println("Список спутников:")
+        satelliteSet.forEach {
+            println("— ${it.name}")
+        }
     }
 }
 
