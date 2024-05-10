@@ -9,8 +9,8 @@ fun main() {
         Subscriber3("Douglas Doe", 88005553539),
     )
 
-    val companyList = contactsList.filter { it.company != null }.map { it.company }
-    println("Список компаний: \n${companyList}")
+    val companyList = contactsList.mapNotNull { it.company }
+    println("Список компаний: \n${companyList.toSortedSet()}")
 }
 
 class Subscriber3(
