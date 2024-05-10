@@ -4,6 +4,8 @@ fun main() {
     val contactsList = mutableSetOf<Subscriber4>()
 
     do {
+        var userDecision = ""
+
         println("Введите имя:")
         val userInputName = readlnOrNull() ?: ""
         println("Введите номер телефона без '+': ")
@@ -11,35 +13,28 @@ fun main() {
 
         if (userInputPhone == null) {
             println("Ошибка ввода!")
-            return
-        } else {
-            println("Введите компанию: ")
+            continue
         }
 
+        println("Введите компанию: ")
         val userInputCompany = readlnOrNull()
-
-        val companyName = if (userInputCompany.isNullOrBlank()) {
-            null
-        } else userInputCompany
+        val companyName = userInputCompany.takeIf { !it.isNullOrBlank() }
 
         val obj = Subscriber4(userInputName, userInputPhone, companyName)
-        if (contactsList.contains(obj)) {
-            println("Такая запись уже существует")
-        } else {
-            contactsList.add(obj)
-        }
+        contactsList.add(obj)
 
         println("Добавить ещё? Да/Нет")
-        val userDecision = readlnOrNull()?.lowercase() ?: "нет"
-    } while (userDecision != "нет")
+        userDecision = readlnOrNull() ?: "нет"
+    } while (!userDecision.equals("нет", ignoreCase = true))
 
-    contactsList.forEach { it.printContacts() }
+    contactsList.forEach { contact ->
+        contact.printContacts() }
 }
 
 class Subscriber4(
-    val name: String,
-    val phoneNumber: Long,
-    val company: String? = null,
+    private val name: String,
+    private val phoneNumber: Long,
+    private val company: String? = null,
 ) {
     fun printContacts() {
         println("""
