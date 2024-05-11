@@ -2,12 +2,15 @@ package org.example.lesson_14
 
 import kotlin.math.pow
 
-fun main() {
-    val circle1 = Circle(2.0, "Белый")
-    val circle2 = Circle(6.3, "Чёрный")
+const val COLOR_WHITE = "Белый"
+const val COLOR_BLACK = "Чёрный"
 
-    val rectangle1 = Rectangle(2.6, 6.8, "Чёрный")
-    val rectangle2 = Rectangle(6.2, 4.0, "Белый")
+fun main() {
+    val circle1 = Circle(2.0, COLOR_WHITE)
+    val circle2 = Circle(6.3, COLOR_BLACK)
+
+    val rectangle1 = Rectangle(2.6, 6.8, COLOR_BLACK)
+    val rectangle2 = Rectangle(6.2, 4.0, COLOR_WHITE)
 
     val listOfFigures = mutableListOf(circle1, circle2, rectangle1, rectangle2)
 
@@ -15,9 +18,9 @@ fun main() {
     var sumOfWhiteAreas = 0.0
 
     listOfFigures.forEach { figure ->
-        when (figure.color.lowercase()) {
-            "чёрный" -> sumOfBlackPerimeters += figure.countPerimeter()
-            "белый" -> sumOfWhiteAreas += figure.countArea()
+        when (figure.color) {
+            COLOR_BLACK -> sumOfBlackPerimeters += figure.countPerimeter()
+            COLOR_WHITE -> sumOfWhiteAreas += figure.countArea()
         }
     }
 
