@@ -12,37 +12,29 @@ fun main() {
     duck.fly()
 }
 
-abstract class Fish(
-    val fishTypeName: String = "Рыба",
-)
-
-abstract class Bird(
-    val birdTypeName: String = "Птица"
-)
-
-class Crucian : Fish(), Swimmable {
+class Crucian : Swimmable {
     override fun swim() {
-        println("${this.fishTypeName} 'Карась' может плавать")
+        println("Карась может плавать")
     }
 }
 
-class Seagull : Bird(), Swimmable, Flyable {
+class Seagull : Swimmable, Flyable {
     override fun swim() {
-        println("${this.birdTypeName} 'Чайка' может плавать")
+        println("Чайка может плавать")
     }
 
     override fun fly() {
-        println("${this.birdTypeName} 'Чайка' может летать")
+        println("Чайка может летать")
     }
 }
 
-class Duck : Bird(), Swimmable, Flyable {
+class Duck : Swimmable, Flyable {
     override fun fly() {
-        println("${this.birdTypeName} 'Утка' может летать")
+        println("Утка может летать")
     }
 
     override fun swim() {
-        println("${this.birdTypeName} 'Утка' может плавать")
+        println("Утка может плавать")
     }
 }
 
