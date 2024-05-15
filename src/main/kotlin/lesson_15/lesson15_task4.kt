@@ -1,3 +1,5 @@
+package org.example.lesson_15
+
 fun main() {
     val harp = Instrument("Гусли", 8)
     val strings = Accessories("Набор струн для гуслей",15)
