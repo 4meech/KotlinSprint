@@ -13,10 +13,10 @@ fun main() {
 
 class CircleOne(private val radius: Double) {
 
-    fun countLength(): Double = (2 * PI * radius)
-    fun countArea(): Double = (PI * radius.pow(2))
+    fun countLength(): Double = (2 * MyConst.PI * radius)
+    fun countArea(): Double = (MyConst.PI * radius.pow(2))
+}
 
-    companion object {
-        private const val PI = 3.14
-    }
+private object MyConst{
+    const val PI = 3.14
 }
