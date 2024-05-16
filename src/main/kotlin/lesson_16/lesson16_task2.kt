@@ -3,6 +3,7 @@ package org.example.lesson_16
 import kotlin.math.pow
 
 const val RADIUS = 10.0
+private const val PI = 3.14
 
 fun main() {
     val circle = CircleOne(RADIUS)
@@ -13,10 +14,6 @@ fun main() {
 
 class CircleOne(private val radius: Double) {
 
-    fun countLength(): Double = (2 * MyConst.PI * radius)
-    fun countArea(): Double = (MyConst.PI * radius.pow(2))
-}
-
-private object MyConst{
-    const val PI = 3.14
+    fun countLength(): Double = (2 * PI * radius)
+    fun countArea(): Double = (PI * radius.pow(2))
 }
