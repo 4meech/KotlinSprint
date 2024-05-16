@@ -8,7 +8,7 @@ fun main() {
 }
 
 private class Order(private val orderNumber: Int, var orderStatus: String) {
-    fun setNewOrderStatus(newOrderStatus: String) {
+    private fun setNewOrderStatus(newOrderStatus: String) {
         orderStatus = newOrderStatus
     }
 
