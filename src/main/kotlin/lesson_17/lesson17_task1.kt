@@ -2,10 +2,10 @@ package org.example.lesson_17
 
 class QuizElement (val question: String, val answer: String) {
 
-    val getQuestion = ""
+    val questionGet: String = question
         get() = field
 
-    var getAnswer = ""
+    var answerGetSet = answer
         get() = field
         set(value) {
             field = value
