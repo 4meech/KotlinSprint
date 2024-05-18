@@ -9,15 +9,14 @@ fun main() {
 }
 
 class Folder (
-    var folderName: String,
-    var numberOfFiles: Int,
-    val isSecret: Boolean = false,
+    private var folderName: String,
+    private var numberOfFiles: Int,
+    private val isSecret: Boolean = false,
 ) {
     val getName: String
         get() {
             return if (isSecret) {
-                this.numberOfFiles = 0
-                "скрытая папка, файлов: ${numberOfFiles}"
+                "скрытая папка, файлов: 0"
             } else {
                 "${this.folderName}, файлов: ${this.numberOfFiles}"
             }
