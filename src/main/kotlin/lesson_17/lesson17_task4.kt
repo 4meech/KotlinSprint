@@ -4,10 +4,10 @@ fun main() {
     val parcel = Parcel("RA6172992384CN", "Внуково МАПП")
 
     parcel.currentLocation = "Столбище"
-    println("Количество перемещений послыки с номером ${parcel.track}: ${parcel.moveCounter}")
+    println("Количество перемещений послыки с номером ${parcel.trackingNumber}: ${parcel.moveCounter}")
 }
 
-class Parcel (trackingNumber: String, location: String) {
+class Parcel (val trackingNumber: String, location: String) {
     var moveCounter = 0
 
     var currentLocation = location
@@ -15,6 +15,4 @@ class Parcel (trackingNumber: String, location: String) {
             field = value
             moveCounter++
         }
-
-    val track = trackingNumber
 }
