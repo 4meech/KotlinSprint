@@ -12,32 +12,16 @@ fun main() {
     }
 }
 
-open class TheGreatDice {
-    open fun throwDice() {
-        println((1..4).random())
+abstract class TheGreatDice(
+    private val numberOfSides: Int,
+) {
+    fun throwDice() {
+        println("Выпало число: " + (1..numberOfSides).random())
     }
 }
 
-class FourDice(
-    private val numberOfSides: Int = 4
-) : TheGreatDice() {
-    override fun throwDice() {
-        println("Выпало число " + (1..numberOfSides).random())
-    }
-}
+class FourDice : TheGreatDice(4)
 
-class SixDice(
-    private val numberOfSides: Int = 6
-) : TheGreatDice() {
-    override fun throwDice() {
-        println("Выпало число " + (1..numberOfSides).random())
-    }
-}
+class SixDice : TheGreatDice(6)
 
-class EightDice(
-    private val numberOfSides: Int = 8
-) : TheGreatDice() {
-    override fun throwDice() {
-        println("Выпало число " + (1..numberOfSides).random())
-    }
-}
+class EightDice : TheGreatDice(8)
