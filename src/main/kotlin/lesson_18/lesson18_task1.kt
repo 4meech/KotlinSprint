@@ -19,6 +19,6 @@ class OrderItem {
     fun printOrderInfo(
         orderItemsNames: List<String>,
     ){
-        println("Заказаны следующие товары: ${orderItemsNames.joinToString()}")
+        println("Заказаны следующие товары: ${orderItemsNames.joinToString(", ")}")
     }
 }
