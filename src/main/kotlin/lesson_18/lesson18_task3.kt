@@ -2,9 +2,9 @@ package org.example.lesson_18
 
 fun main() {
 
-    val fox = Fox("Лиса")
-    val dog = Dog("Собака")
-    val cat = Cat("Кошка")
+    val fox = Fox("Лиса", "ягоды")
+    val dog = Dog("Собака", "кости")
+    val cat = Cat("Кошка", "рыбов")
 
     val listOfAnimals: List<Animal> = listOf(fox, dog, cat)
 
@@ -13,26 +13,26 @@ fun main() {
     }
 }
 
-open class Animal(open val name: String) {
+open class Animal(
+    open val name: String,
+    open val foodName: String
+) {
     open fun eat() {
-        println("$name ест всё подряд")
+        println("$name ест $foodName")
+    }
+
+    open fun sleep() {
+        print("$name спит")
     }
 }
 
-class Fox(override val name: String) : Animal(name) {
-    override fun eat() {
-        println("$name ест ягоды")
-    }
-}
+class Fox(name: String, foodName: String) : Animal(name, foodName)
 
-class Dog(override val name: String) : Animal(name) {
-    override fun eat() {
-        println("$name ест кости")
-    }
-}
+class Dog(name: String, foodName: String) : Animal(name, foodName)
 
-class Cat(override val name: String) : Animal(name) {
+class Cat(name: String, foodName: String) : Animal(name, foodName) {
     override fun eat() {
-        println("$name ест рыбу")
+        super.eat()
+        println("Сытное")
     }
 }
