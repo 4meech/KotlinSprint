@@ -9,10 +9,10 @@ fun main() {
     }
 
     checkIfPlayerHasKey(player2)
-    checkIfPlayerHasKey.invoke(player3)
+    checkIfPlayerHasKey(player3)
 }
 
 private class Player2(
     val playerName: String,
-    val hasKey: Boolean
+    val hasKey: Boolean,
 )
