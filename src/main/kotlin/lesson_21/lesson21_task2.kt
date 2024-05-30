@@ -5,13 +5,4 @@ fun main() {
     println(numbers.evenNumbersSum())
 }
 
-fun List<Int>.evenNumbersSum(): Int {
-    var sumEven = 0
-
-    for (i in this) {
-        if (i % 2 == 0) {
-            sumEven += i
-        }
-    }
-    return sumEven
-}
+fun List<Int>.evenNumbersSum(): Int = this.filter { it % 2 == 0 }.sum()
