@@ -1,5 +1,7 @@
 package org.example.lesson_11
 
+const val USERS_STARTCOUNT = 1000
+
 fun main() {
     val forum = Forum()
 
@@ -17,9 +19,10 @@ fun main() {
 class Forum {
     private val users = mutableListOf<ForumUser>()
     private val messages = mutableListOf<Message>()
+    private var userCounter = USERS_STARTCOUNT
 
     fun createNewUser(userName: String): ForumUser {
-        val createdUser = ForumUser((1001..9999).random(), userName)
+        val createdUser = ForumUser(++userCounter, userName)
 
         users.add(createdUser)
         return createdUser
@@ -35,8 +38,9 @@ class Forum {
     }
 
     fun printThread() {
-        messages.forEach {
-            println("${it.authorId}: ${it.message}")
+        messages.forEach { message ->
+            val authorName = users.find { it.userId == message.authorId }
+            println("${authorName?.userName}: ${message.message}")
         }
     }
 }
