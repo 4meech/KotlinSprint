@@ -33,7 +33,7 @@ fun main() {
     println("Всего перевезено груза: ${cargoCar.cargoMoved} т.")
 }
 
-abstract class Vehicle(val maxPassengers: Int, val maxCargo: Int) : MoveCargo, MovePassengers {
+abstract class Vehicle(val maxPassengers: Int, val maxCargo: Int) : CargoCarrier, PassengerCarrier {
     var passengersToMove = 0
     var cargoToMove = 0
     var passengersOnBoard = 0
@@ -42,13 +42,13 @@ abstract class Vehicle(val maxPassengers: Int, val maxCargo: Int) : MoveCargo, M
     var cargoMoved = 0
 }
 
-interface MovePassengers {
+interface PassengerCarrier {
     fun loadPassengers(number: Int)
     fun unloadPassengers()
     fun movePassengers()
 }
 
-interface MoveCargo {
+interface CargoCarrier {
     fun loadCargo(number: Int)
     fun unloadCargo()
     fun moveCargo()
